@@ -50,32 +50,20 @@ pip install -r requirements.txt
 ```bash
 cd taxoshap-frontend
 npm install
-npm start
+npm run dev 
 ```
 
 4. **Run backend server**
 ```bash
 cd taxoshap-backend
-python app.py
+RUN THE NOTEBOOK
 ```
 
 ---
 
-## 📊 Usage
-
-### 1️⃣ Train the model
+## 2️⃣ Run inference Test
 ```bash
-python train.py --data dataset/otu_table.csv --taxonomy dataset/taxonomy.csv
-```
-
-### 2️⃣ Run inference
-```bash
-python test.py --input sample.csv
-```
-
-### 3️⃣ SHAP Explainability
-```bash
-python explain.py --input sample.csv
+python test.py 
 ```
 
 ---
