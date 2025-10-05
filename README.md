@@ -502,11 +502,11 @@ pip install --no-cache-dir -r requirements.txt
 
 ## 👨‍💻 Authors & Contact
 
-| **Author** | **Role** | **Contact** |
+| **Author** | **Contact** |
 |------------|----------|-------------|
-| **Adarsh Kesharwani** | Lead Developer, Research | akesherwani900@gmail.com |
-| **Tahami Syed** | Research, Implementation | syedtahami123@gmail.com |  
-| **Shravan Tiwari** | Research, Validation | shravantiwari2811@gmail.com |
+| **Adarsh Kesharwani** | akesherwani900@gmail.com |
+| **Tahami Syed** | syedtahami123@gmail.com |  
+| **Shravan Tiwari** | shravantiwari2811@gmail.com |
 
 ---
 
