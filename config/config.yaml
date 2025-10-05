@@ -1,0 +1,250 @@
+# Configuration file for TaxoCapsNet experiments
+
+# Data configuration
+data:
+  path: "data/GSE_df.csv"                    # Path to main dataset
+  taxonomy_file: null                        # Optional taxonomy file path
+  test_size: 0.2                            # Train-test split ratio
+  validation_size: 0.1                      # Validation split from training
+  random_state: 42                          # Random seed for reproducibility
+  stratify: true                            # Stratified sampling
+  
+  # Data preprocessing
+  preprocessing:
+    standardization: true                    # Apply StandardScaler
+    clr_transformation: true                 # Center log-ratio transformation
+    remove_zero_variance: true               # Remove zero-variance features
+    min_prevalence: 0.05                     # Minimum feature prevalence threshold
+
+# Model architecture configuration
+model:
+  # TaxoCapsNet specific parameters
+  taxocapsnet:
+    num_primary_capsules: 8                  # Primary capsules per phylum group
+    primary_capsule_dim: 16                  # Dimension of primary capsules
+    num_class_capsules: 2                    # Number of final class capsules
+    class_capsule_dim: 16                    # Dimension of class capsules
+    routing_iterations: 3                    # Dynamic routing iterations
+    
+  # General neural network parameters
+  dense:
+    hidden_layers: [64, 32, 16]             # Hidden layer sizes
+    dropout_rate: 0.3                       # Dropout probability
+    activation: "relu"                      # Activation function
+    
+  # Regularization
+  regularization:
+    l1_reg: 0.0                             # L1 regularization coefficient
+    l2_reg: 0.001                           # L2 regularization coefficient
+
+# Training configuration
+training:
+  epochs: 100                               # Maximum training epochs
+  batch_size: 32                            # Training batch size
+  learning_rate: 0.001                      # Initial learning rate
+  optimizer: "adam"                         # Optimizer type
+  
+  # Learning rate scheduling
+  lr_schedule:
+    enabled: true                           # Enable learning rate scheduling
+    factor: 0.5                             # Reduction factor
+    patience: 8                             # Patience epochs
+    min_lr: 1e-6                            # Minimum learning rate
+  
+  # Early stopping
+  early_stopping:
+    enabled: true                           # Enable early stopping
+    monitor: "val_accuracy"                 # Metric to monitor
+    patience: 15                            # Patience epochs
+    restore_best_weights: true              # Restore best weights
+  
+  # Model checkpointing
+  checkpointing:
+    enabled: true                           # Save model checkpoints
+    monitor: "val_accuracy"                 # Metric to monitor
+    save_best_only: true                    # Save only best model
+    save_weights_only: false                # Save full model
+
+# Evaluation configuration
+evaluation:
+  metrics:
+    - "accuracy"
+    - "sensitivity" 
+    - "specificity"
+    - "precision"
+    - "f1_score"
+    - "auc"
+    - "information_coefficient"
+  
+  # Confidence intervals
+  confidence_intervals:
+    enabled: true                           # Calculate confidence intervals
+    alpha: 0.05                             # Significance level (95% CI)
+    bootstrap_samples: 1000                 # Bootstrap samples for CI
+    
+  # Cross-validation
+  cross_validation:
+    enabled: false                          # Enable cross-validation
+    folds: 5                                # Number of CV folds
+    stratified: true                        # Stratified CV
+
+# Baseline models configuration
+baseline_models:
+  random_forest:
+    enabled: true
+    n_estimators: 50
+    max_depth: 3
+    min_samples_split: 2
+    min_samples_leaf: 1
+    max_features: "sqrt"
+    class_weight: "balanced"
+  
+  logistic_regression:
+    enabled: true
+    C: 0.1
+    penalty: "elasticnet"
+    l1_ratio: 0.5
+    solver: "saga"
+    max_iter: 1000
+    class_weight: "balanced"
+  
+  xgboost:
+    enabled: true
+    n_estimators: 50
+    max_depth: 2
+    learning_rate: 0.01
+    subsample: 0.8
+    colsample_bytree: 0.6
+    reg_alpha: 1.0
+    reg_lambda: 1.0
+  
+  simple_nn:
+    enabled: true
+    hidden_sizes: [32, 16]
+    dropout_rate: 0.5
+    epochs: 50
+    batch_size: 8
+  
+  cnn:
+    enabled: true
+    filters: [64, 128]
+    kernel_size: 3
+    pool_size: 2
+    dropout_rate: 0.3
+  
+  bilstm:
+    enabled: true
+    lstm_units: [256, 128]
+    dropout_rate: 0.2
+    recurrent_dropout: 0.2
+  
+  transformer:
+    enabled: true
+    num_heads: 4
+    head_size: 64
+    ff_dim: 512
+    num_layers: 2
+    dropout_rate: 0.1
+
+# Ablation study configuration
+ablation:
+  models:
+    taxo_dense:                             # Dense networks with taxonomy
+      enabled: true
+      architecture: "dense"
+      use_taxonomy: true
+    
+    random_capsnet:                         # Capsules with random grouping
+      enabled: true
+      architecture: "capsule"
+      use_taxonomy: false
+      random_grouping: true
+    
+    flat_capsnet:                           # Capsules without hierarchy
+      enabled: true
+      architecture: "capsule"
+      use_taxonomy: false
+      flat_input: true
+  
+  # Multi-seed evaluation
+  seeds: [42, 123, 456]                     # Random seeds for robust evaluation
+  statistical_tests:
+    mcnemar: true                           # McNemar's test for paired comparisons
+    t_test: true                            # Paired t-test for performance differences
+
+# Data augmentation configuration
+augmentation:
+  enabled: false                            # Enable data augmentation
+  method: "dirichlet"                       # Augmentation method
+  n_augment: 50                             # Number of synthetic samples per original
+  
+  # Dirichlet augmentation parameters
+  dirichlet:
+    concentration: 100.0                    # Concentration parameter
+    preserve_sparsity: true                 # Maintain sparsity pattern
+    biological_constraints: true           # Apply biological constraints
+  
+  # Compositional augmentation parameters
+  compositional:
+    noise_level: 0.1                        # Noise level for perturbation
+    preserve_ratios: true                   # Maintain compositional ratios
+
+# Visualization configuration
+visualization:
+  plots:
+    performance_comparison: true            # Generate performance comparison plots
+    roc_curves: true                        # Generate ROC curves
+    confusion_matrices: true                # Generate confusion matrices
+    training_history: true                  # Plot training curves
+    feature_importance: true                # SHAP feature importance
+    
+  # Plot styling
+  style:
+    figure_size: [12, 8]                    # Default figure size
+    dpi: 300                                # Figure resolution
+    color_palette: "Set2"                   # Color palette
+    save_format: "png"                      # Save format
+
+# SHAP analysis configuration  
+shap:
+  enabled: true                             # Enable SHAP analysis
+  explainer_type: "deep"                    # SHAP explainer type
+  num_samples: 100                          # Number of samples for explanation
+  
+  # Feature importance
+  top_features: 20                          # Number of top features to display
+  plot_types:
+    - "summary"
+    - "waterfall" 
+    - "force"
+    - "dependence"
+
+# Logging configuration
+logging:
+  level: "INFO"                             # Logging level
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+  file: "results/training.log"              # Log file path
+  
+# Output configuration
+output:
+  save_models: true                         # Save trained models
+  save_results: true                        # Save evaluation results
+  save_plots: true                          # Save generated plots
+  
+  # File formats
+  model_format: "h5"                        # Model save format
+  results_format: "csv"                     # Results save format
+  plot_format: "png"                        # Plot save format
+
+# Computational configuration
+compute:
+  use_gpu: true                             # Use GPU if available
+  memory_growth: true                       # Enable GPU memory growth
+  mixed_precision: false                    # Use mixed precision training
+  parallel_jobs: -1                         # Number of parallel jobs (-1 for all cores)
+
+# Reproducibility configuration
+reproducibility:
+  set_seeds: true                           # Set random seeds
+  deterministic: false                      # Use deterministic algorithms (slower)
+  benchmark: true                           # Enable cuDNN benchmark
