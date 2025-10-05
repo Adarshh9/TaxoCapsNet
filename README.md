@@ -1,13 +1,12 @@
-# TaxoCapsNet: Full-Stack AI Platform for Autism Prediction
+# TaxoCapsNet
 
 [![Python](https://img.shields.io/badge/python-3.8+-blue.svg)](https://python.org)
 [![TensorFlow](https://img.shields.io/badge/tensorflow-2.13.0-orange.svg)](https://tensorflow.org)
 [![Flask](https://img.shields.io/badge/flask-2.3.3-green.svg)](https://flask.palletsprojects.com)
 [![Next.js](https://img.shields.io/badge/next.js-14.0-black.svg)](https://nextjs.org)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Paper](https://img.shields.io/badge/paper-IEEE%20TCBB-red.svg)](https://ieeexplore.ieee.org)
 
-**A complete AI platform combining taxonomy-aware capsule networks with advanced interpretability and modern web interface for autism spectrum disorder prediction from gut microbiome data.**
+**A complete AI platform combining taxonomy-aware capsule networks with advanced interpretability and a modern web interface for autism spectrum disorder prediction from gut microbiome data.**
 
 > **📄 Research Paper**: "TaxoCapsNet: A Taxonomy-Aware Capsule Network for Autism Prediction from Gut Microbiome Profiles"  
 > **👨‍💻 Authors**: Adarsh Kesharwani, Tahami Syed, Shravan Tiwari
@@ -23,7 +22,7 @@ git clone https://github.com/Adarshh9/TaxoCapsNet.git
 cd TaxoCapsNet
 
 # Install dependencies
-pip install -r requirements.txt
+pip install -r requirements.txt: Full-Stack AI Platform for Autism Prediction
 
 # Train TaxoCapsNet model
 python main.py --mode train --config config/config.yaml
