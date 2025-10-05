@@ -11,7 +11,6 @@
 
 > **📄 Research Paper**: "TaxoCapsNet: A Taxonomy-Aware Capsule Network for Autism Prediction from Gut Microbiome Profiles"  
 > **👨‍💻 Authors**: Adarsh Kesharwani, Tahami Syed, Shravan Tiwari
-> **🏛️ Institution**: Thakur College of Engineering and Technology, Mumbai  
 > **📅 Year**: 2025
 
 ---
