@@ -503,7 +503,7 @@ pip install --no-cache-dir -r requirements.txt
 ## 👨‍💻 Authors & Contact
 
 | **Author** | **Contact** |
-|------------|----------|-------------|
+|------------|----------|
 | **Adarsh Kesharwani** | akesherwani900@gmail.com |
 | **Tahami Syed** | syedtahami123@gmail.com |  
 | **Shravan Tiwari** | shravantiwari2811@gmail.com |
