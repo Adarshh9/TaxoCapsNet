@@ -223,8 +223,6 @@ npm run build && npm start  # Production build
 
 ---
 
-## 🆕 New Features
-
 ### 🧠 **TaxoSHAP Interpretability**
 
 Advanced SHAP analysis specifically designed for TaxoCapsNet:
@@ -352,7 +350,7 @@ Modern web interface for the TaxoCapsNet platform:
 ```yaml
 # Data Configuration
 data:
-  path: "data/GSE_df.csv"
+  path: "data/raw/GSE_df.csv"
   test_size: 0.2
   preprocessing:
     clr_transformation: true
@@ -372,7 +370,7 @@ training:
   batch_size: 32
   learning_rate: 0.001
 
-# Flask Server (NEW)
+# Flask Server
 server:
   host: '127.0.0.1'
   port: 5000
@@ -380,7 +378,7 @@ server:
   ngrok:
     enabled: false
 
-# SHAP Analysis (NEW)
+# SHAP Analysis 
 interpretability:
   shap:
     method: 'tree'
@@ -489,17 +487,16 @@ pip install --no-cache-dir -r requirements.txt
 ```bibtex
 @article{kesharwani2025taxocapsnet,
   title={TaxoCapsNet: A Taxonomy-Aware Capsule Network for Autism Prediction from Gut Microbiome Profiles},
-  author={Kesharwani, Adarsh and Syed, Tahami and Tiwari, Shravan and Deshmukh, Swaleha},
-  journal={IEEE/ACM Transactions on Computational Biology and Bioinformatics},
+  author={Kesharwani, Adarsh and Syed, Tahami and Tiwari, Shravan},
   year={2025},
-  publisher={IEEE}
+  note={Preprint – Manuscript in preparation, to be updated with publication details}
 }
+
 ```
 
 ### **Useful Links**
 - **Dataset**: [GSE113690 on NCBI GEO](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE113690)
-- **Paper**: [IEEE Xplore Digital Library](https://ieeexplore.ieee.org)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/TaxoCapsNet/issues)
+- **Issues**: [GitHub Issues](https://github.com/Adarshh9/TaxoCapsNet/issues)
 
 ---
 
@@ -510,13 +507,6 @@ pip install --no-cache-dir -r requirements.txt
 | **Adarsh Kesharwani** | Lead Developer, Research | akesherwani900@gmail.com |
 | **Tahami Syed** | Research, Implementation | syedtahami123@gmail.com |  
 | **Shravan Tiwari** | Research, Validation | shravantiwari2811@gmail.com |
-| **Swaleha Deshmukh** | Supervision, Research Guidance | swaleha.deshmukh@tcetmumbai.in |
-
-### **Institution**
-**Thakur College of Engineering and Technology**  
-Department of Artificial Intelligence and Data Science  
-Mumbai, Maharashtra, India  
-Website: [tcetmumbai.in](https://tcetmumbai.in)
 
 ---
 
@@ -534,8 +524,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 **Made with ❤️ by the TaxoCapsNet Team**
 
-[![GitHub stars](https://img.shields.io/github/stars/yourusername/TaxoCapsNet?style=social)](https://github.com/yourusername/TaxoCapsNet)
-[![GitHub forks](https://img.shields.io/github/forks/yourusername/TaxoCapsNet?style=social)](https://github.com/yourusername/TaxoCapsNet)
+[![GitHub stars](https://img.shields.io/github/stars/Adarshh9/TaxoCapsNet?style=social)](https://github.com/Adarshh9/TaxoCapsNet)
+[![GitHub forks](https://img.shields.io/github/forks/Adarshh9/TaxoCapsNet?style=social)](https://github.com/Adarshh9/TaxoCapsNet)
 
 [⬆️ Back to Top](#taxocapsnet-full-stack-ai-platform-for-autism-prediction)
 
