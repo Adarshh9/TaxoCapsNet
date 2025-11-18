@@ -6,7 +6,7 @@
 [![Next.js](https://img.shields.io/badge/next.js-14.0-black.svg)](https://nextjs.org)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-**A complete AI platform combining taxonomy-aware capsule networks with advanced interpretability and a modern web interface for autism spectrum disorder prediction from gut microbiome data.**
+**A complete AI platform combining taxonomy-aware capsule networks with advanced interpretability and a modern web interface for autism spectrum disorder prediction from gut microbiome profiles.**
 
 > **📄 Research Paper**: "TaxoCapsNet: A Taxonomy-Aware Capsule Network for Autism Prediction from Gut Microbiome Profiles"  
 > **👨‍💻 Authors**: Adarsh Kesharwani, Tahami Syed, Shravan Tiwari
